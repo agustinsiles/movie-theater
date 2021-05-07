@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import RatingFilterContainer from '../../components/rating-filter-container/rating-filter-container.component';
 import { requestMovies } from '../../redux/movies/movie-actions';
 import MovieList from './../../components/movie-list/movie-list.component';
 import SearchBox from './../../components/search-box/search-box.component';
@@ -7,7 +8,7 @@ import SearchBox from './../../components/search-box/search-box.component';
 const Home: React.FC<{}> = () => {
     const dispatch = useDispatch();
     const [ query, setQuery ] = useState<string>();
-    const { movies, error, fetching } = useSelector((state: any) => state.movieReducer);
+    const { movies, error, fetching, rate } = useSelector((state: any) => state.movieReducer);
 
     const onSearch = () => { dispatch(requestMovies(query)); };
 
@@ -18,7 +19,12 @@ const Home: React.FC<{}> = () => {
     
         if (fetching) return <p>Fetching movies...</p>;
 
-        return <MovieList movies={movies} />;
+        const filteredMovies = rate !== 0 ? movies.filter((movie: any) => {
+            const rateRange = rate - movie.vote_average;
+            return rateRange >= 0 && rateRange <= 2;
+        }) : [...movies];
+
+        return <MovieList movies={filteredMovies} />;
     };
 
     useEffect(() => {
@@ -32,6 +38,7 @@ const Home: React.FC<{}> = () => {
                 searchHandler={onSearch}
                 changeHandler={onQueryChange}
             />
+            <RatingFilterContainer />
             {renderMovieList()}
         </div>
     );

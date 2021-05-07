@@ -1,14 +1,20 @@
 import { Dispatch } from "react";
+import { Rates } from "../../components/rating-star/rating-star.component";
 
 export const FETCH_MOVIES = 'FETCH_SUGGESTED_MOVIES';
 export const FETCH_MOVIES_SUCCESS = 'FETCH_SUGGESTED_MOVIES_SUCCESS';
 export const FETCH_MOVIES_ERROR = 'FETCH_SUGGESTED_MOVIES_ERROR';
 
+export const SET_RATE_FILTER = 'SET_RATE_FILTER';
+
 export const fetchMoviesFailed = () => ({ type: FETCH_MOVIES_ERROR });
 export const fetchMoviesSucceed = (movies: any[]) => ({ type: FETCH_MOVIES_SUCCESS, movies });
-export const requestMovies = (query?: string) => (dispatch: Dispatch<any>) => dispatch(getMovies(query));
+
+export const setRateFilter = (rate: Rates) => ({ type: SET_RATE_FILTER, rate });
 
 const fetchMovies = () => ({ type: FETCH_MOVIES });
+
+export const requestMovies = (query?: string) => (dispatch: Dispatch<any>) => dispatch(getMovies(query));
 
 const getMovies = (query?: string): Dispatch<any> => (dispatch: Dispatch<any>) => {
     dispatch(fetchMovies());

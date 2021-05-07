@@ -1,13 +1,15 @@
 import { 
     FETCH_MOVIES,
     FETCH_MOVIES_ERROR,
-    FETCH_MOVIES_SUCCESS
+    FETCH_MOVIES_SUCCESS,
+    SET_RATE_FILTER
 } from './movie-actions';
 
 const initialState = {
     error: false,
     movies: [],
-    fetching: false
+    fetching: false,
+    rate: 0
 };
 
 const movieReducer = (state = initialState, action: any = {}) => {
@@ -20,8 +22,11 @@ const movieReducer = (state = initialState, action: any = {}) => {
             return {
                 error: false, 
                 movies: action.movies,
-                fetching: false 
+                fetching: false,
+                rate: 0
             };
+        case SET_RATE_FILTER:
+            return { ...state, rate: action.rate };
         default: return state;
     }
 };
