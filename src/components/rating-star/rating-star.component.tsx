@@ -17,7 +17,8 @@ interface IRatingStar {
 };
 
 const RatingStar: React.FC<IRatingStar> = ({ click, value, selected }) => {
-    return selected ? <IoStarSharp onClick={() => click(value)} /> : <IoStarOutline onClick={() => click(value)} />;
+    const StarComponent = selected ? IoStarSharp : IoStarOutline;
+    return <StarComponent onClick={() => click(value)} />;
 };
 
 export default RatingStar;
