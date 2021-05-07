@@ -7,7 +7,7 @@ interface IMovieListProps {
 
 const MovieList: React.FC<IMovieListProps> = ({ movies }) => (
     <div>
-        {movies.map((movie, index) => <MovieAvatar avatarUrl={movie.poster_path} key={index} />)}
+        {movies.length === 0 ? <p>No results found.</p> : movies.map((movie, index) => <MovieAvatar avatarUrl={movie.poster_path} key={index} />)}
     </div>
 );
 

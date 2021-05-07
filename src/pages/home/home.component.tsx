@@ -1,32 +1,38 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { requestSuggestedMovies } from '../../redux/movies/movie-actions';
+import { requestMovies } from '../../redux/movies/movie-actions';
 import MovieList from './../../components/movie-list/movie-list.component';
 import SearchBox from './../../components/search-box/search-box.component';
 
 const Home: React.FC<{}> = () => {
     const dispatch = useDispatch();
+    const [ query, setQuery ] = useState<string>();
     const { movies, error, fetching } = useSelector((state: any) => state.movieReducer);
-    const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(event.target.value);
+
+    const onSearch = () => { dispatch(requestMovies(query)); };
+
+    const onQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => { setQuery(event.target.value); };
+
+    const renderMovieList = () => {
+        if (error) return <p>Error</p>;
+    
+        if (fetching) return <p>Fetching movies...</p>;
+
+        return <MovieList movies={movies} />;
     };
 
     useEffect(() => {
-        dispatch(requestSuggestedMovies());
+        dispatch(requestMovies());
     }, [dispatch]);
 
-    if (error) {
-        return <p>Error</p>;
-    }
-
-    if (fetching) {
-        return <p>Fetching movies...</p>;
-    }
-
     return (
-        <div className="App">
-            <SearchBox placeholder='Search for a movie...' change={onSearchChange} />
-            <MovieList movies={movies} />
+        <div className="Home">
+            <SearchBox 
+                placeholder='Search for a movie...' 
+                searchHandler={onSearch}
+                changeHandler={onQueryChange}
+            />
+            {renderMovieList()}
         </div>
     );
 };
