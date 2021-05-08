@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { requestMovies } from '../../redux/movies/movie-actions';
+import Error from '../../components/error/error.component';
 import MovieList from './../../components/movie-list/movie-list.component';
 import SearchBox from './../../components/search-box/search-box.component';
+import Spinner from '../../components/spinner/spinner.component';
 
 const Home: React.FC<{}> = () => {
     const dispatch = useDispatch();
@@ -14,9 +16,8 @@ const Home: React.FC<{}> = () => {
     const onQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => { setQuery(event.target.value); };
 
     const renderMovieList = () => {
-        if (error) return <p>Error</p>;
-    
-        if (fetching) return <p>Fetching movies...</p>;
+        if (error) return <Error />;
+        if (fetching) return <Spinner />;
 
         const filteredMovies = rate !== 0 ? movies.filter((movie: any) => {
             const rateRange = rate - movie.vote_average;
