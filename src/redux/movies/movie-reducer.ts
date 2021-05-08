@@ -8,13 +8,15 @@ import {
     SET_RATE_FILTER
 } from './movie-actions';
 
-const initialState: { 
+export interface IMovieReducer {
     activeMovie: Movie | null;
     error: boolean;
     movies: Movie[];
     fetching: boolean;
     rate: Rates
-} = {
+}
+
+const initialState: IMovieReducer = {
     activeMovie: null,
     error: false,
     movies: [],
@@ -39,7 +41,9 @@ const movieReducer = (state = initialState, action: any = {}) => {
         case FETCH_MOVIE_BY_ID_SUCCESS:
             return {
                 ...state,
-                activeMovie: action.movie
+                activeMovie: action.movie,
+                fetching: false,
+                error: false
             };
         case SET_RATE_FILTER:
             return { ...state, rate: action.rate };

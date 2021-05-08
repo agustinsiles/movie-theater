@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setRateFilter } from '../../redux/movies/movie-actions';
 import RatingStar, { Rates } from '../rating-star/rating-star.component';
+import './rating-filter-container.component.scss';
 
 const RatingFilterContainer: React.FC<{}> = () => {
     const dispatch = useDispatch();
@@ -13,7 +14,8 @@ const RatingFilterContainer: React.FC<{}> = () => {
     };
 
     return (
-        <div>
+        <div className="RatingFilter">
+            <span>Filter movie by rates:</span>
             {[2, 4, 6, 8, 10].map((val, key) => {
                 return (
                     <RatingStar 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Movie from '../../classes/movie';
 import MovieAvatar from '../movie-avatar/movie-avatar.component';
+import './movie-item.component.scss';
 
 interface IMovieItemProps {
     clickHandler: (movieId: string) => void,
@@ -12,7 +13,9 @@ const MovieItem: React.FC<IMovieItemProps> = ({ clickHandler, movie }) => {
         <div
             onClick={() => clickHandler(movie.id)} 
             className="MovieItem">
-            <MovieAvatar avatarUrl={movie.avatar} />
+            <div className="AvatarWrapper">
+                <MovieAvatar avatarUrl={movie.avatar} />
+            </div>
             <h6>{movie.title}</h6>
         </div>
     );

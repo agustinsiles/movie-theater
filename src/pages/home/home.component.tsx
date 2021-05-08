@@ -6,11 +6,12 @@ import MovieList from './../../components/movie-list/movie-list.component';
 import SearchBox from './../../components/search-box/search-box.component';
 import Spinner from '../../components/spinner/spinner.component';
 import Movie from '../../classes/movie';
+import { IMovieReducer } from '../../redux/movies/movie-reducer';
 
 const Home: React.FC<{}> = () => {
     const dispatch = useDispatch();
     const [ query, setQuery ] = useState<string>();
-    const { movies, error, fetching, rate } = useSelector((state: any) => state.movieReducer);
+    const { movies, error, fetching, rate } = useSelector((state: any): IMovieReducer => state.movieReducer);
 
     const onSearch = () => { dispatch(requestMovies(query)); };
 
@@ -20,7 +21,7 @@ const Home: React.FC<{}> = () => {
         if (error) return <Error />;
         if (fetching) return <Spinner />;
 
-        const filteredMovies: Movie[] = rate !== 0 ? movies.filter((movie: any) => {
+        const filteredMovies: Movie[] = rate !== 0 ? movies.filter((movie: Movie) => {
             const rateRange = rate - movie.vote_average;
             return rateRange >= 0 && rateRange <= 2;
         }) : [...movies];
@@ -39,7 +40,9 @@ const Home: React.FC<{}> = () => {
                 searchHandler={onSearch}
                 changeHandler={onQueryChange}
             />
-            {renderMovieList()}
+            <div className="container">
+                {renderMovieList()}
+            </div>
         </div>
     );
 };
