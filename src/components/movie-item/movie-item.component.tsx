@@ -1,9 +1,10 @@
 import React from 'react';
+import Movie from '../../classes/movie';
 import MovieAvatar from '../movie-avatar/movie-avatar.component';
 
 interface IMovieItemProps {
     clickHandler: (movieId: string) => void,
-    movie: any
+    movie: Movie
 };
 
 const MovieItem: React.FC<IMovieItemProps> = ({ clickHandler, movie }) => {

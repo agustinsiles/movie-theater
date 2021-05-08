@@ -5,6 +5,7 @@ import Error from '../../components/error/error.component';
 import MovieList from './../../components/movie-list/movie-list.component';
 import SearchBox from './../../components/search-box/search-box.component';
 import Spinner from '../../components/spinner/spinner.component';
+import Movie from '../../classes/movie';
 
 const Home: React.FC<{}> = () => {
     const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const Home: React.FC<{}> = () => {
         if (error) return <Error />;
         if (fetching) return <Spinner />;
 
-        const filteredMovies = rate !== 0 ? movies.filter((movie: any) => {
+        const filteredMovies: Movie[] = rate !== 0 ? movies.filter((movie: any) => {
             const rateRange = rate - movie.vote_average;
             return rateRange >= 0 && rateRange <= 2;
         }) : [...movies];

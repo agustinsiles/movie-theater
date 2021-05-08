@@ -1,11 +1,12 @@
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
+import Movie from '../../classes/movie';
 import MovieItem from '../movie-item/movie-item.component';
 import RatingFilterContainer from '../rating-filter-container/rating-filter-container.component';
 import './movie-list.component.scss';
 
 type IMovieListProps = RouteComponentProps<{}> & {
-    movies: any[],
+    movies: Movie[],
 };
 
 const MovieList: React.FC<IMovieListProps> = ({ movies, history }) => {
@@ -18,7 +19,7 @@ const MovieList: React.FC<IMovieListProps> = ({ movies, history }) => {
             </div>
             <div className="MovieList">
                 {
-                movies.length === 0 ? <p>No results were found.</p> : movies.map((movie, index) => (
+                movies.length === 0 ? <p>No results were found.</p> : movies.map((movie: Movie, index: number) => (
                     <MovieItem
                         clickHandler={onMovieClick}
                         movie={movie} 

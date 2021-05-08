@@ -24,7 +24,7 @@ const MovieDetails: React.FC<RouteComponentProps<PathParamsType>> = ({ match }) 
             return (
                 <div>
                     <MovieAvatar avatarUrl={activeMovie.poster_path} />
-                    <p>{activeMovie.original_title}</p>
+                    <p>{activeMovie.title}</p>
                 </div>
             );
         }

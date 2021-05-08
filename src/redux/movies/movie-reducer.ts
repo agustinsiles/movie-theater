@@ -1,3 +1,5 @@
+import Movie from '../../classes/movie';
+import { Rates } from '../../components/rating-star/rating-star.component';
 import { 
     FETCH_MOVIES,
     FETCH_MOVIES_ERROR,
@@ -6,7 +8,13 @@ import {
     SET_RATE_FILTER
 } from './movie-actions';
 
-const initialState = {
+const initialState: { 
+    activeMovie: Movie | null;
+    error: boolean;
+    movies: Movie[];
+    fetching: boolean;
+    rate: Rates
+} = {
     activeMovie: null,
     error: false,
     movies: [],
