@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '../button/button.component';
+import './search-box.component.scss';
 
 interface ISearchProps {
     placeholder: string,
@@ -14,14 +16,14 @@ const SearchBox: React.FC<ISearchProps> = ({ placeholder, changeHandler, searchH
     };
 
     return (
-        <div>
+        <div className="SearchBox">
             <input 
                 type='search' 
                 placeholder={placeholder} 
                 onChange={changeHandler}
                 onKeyPress={keyPressHandler}
             />
-            <button onClick={searchHandler}>Search</button>
+            <Button clickHandler={searchHandler} label='Search!' />
         </div>
     );
 }

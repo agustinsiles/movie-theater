@@ -1,5 +1,6 @@
 import React from 'react';
 import { IoStarOutline, IoStarSharp } from "react-icons/io5";
+import './rating-star.component.scss';
 
 export enum Rates {
     TWO = 2,
@@ -18,7 +19,7 @@ interface IRatingStar {
 
 const RatingStar: React.FC<IRatingStar> = ({ click, value, selected }) => {
     const StarComponent = selected ? IoStarSharp : IoStarOutline;
-    return <StarComponent onClick={() => click(value)} />;
+    return <StarComponent className='RatingStar' onClick={() => click(value)} />;
 };
 
 export default RatingStar;

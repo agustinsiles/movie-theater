@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import RatingFilterContainer from '../../components/rating-filter-container/rating-filter-container.component';
 import { requestMovies } from '../../redux/movies/movie-actions';
 import MovieList from './../../components/movie-list/movie-list.component';
 import SearchBox from './../../components/search-box/search-box.component';
@@ -34,11 +33,10 @@ const Home: React.FC<{}> = () => {
     return (
         <div className="Home">
             <SearchBox 
-                placeholder='Search for a movie...' 
+                placeholder='Search for a movie...'
                 searchHandler={onSearch}
                 changeHandler={onQueryChange}
             />
-            <RatingFilterContainer />
             {renderMovieList()}
         </div>
     );
