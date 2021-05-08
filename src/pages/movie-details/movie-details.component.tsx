@@ -13,18 +13,20 @@ type PathParamsType = {
 
 const MovieDetails: React.FC<RouteComponentProps<PathParamsType>> = ({ match }) => {
     const movieId: string = match.params.movieId;
-    const { activeMovie, fetching, error } = useSelector((state: any) => state.movieReducer);
+    const { activeMovie: movie, fetching, error } = useSelector((state: any) => state.movieReducer);
     const dispatch = useDispatch();
 
     const renderMovieDetails = () => {
         if (fetching) return <Spinner />;
         if (error) return <Error />;
 
-        if (activeMovie !== null) {
+        if (movie !== null) {
             return (
                 <div>
-                    <MovieAvatar avatarUrl={activeMovie.poster_path} />
-                    <p>{activeMovie.title}</p>
+                    <MovieAvatar avatarUrl={movie.avatar} />
+                    <h2>{movie.title}</h2>
+                    <p>{movie.overview}</p>
+                    <p>Average rate: {movie.vote_average}</p>
                 </div>
             );
         }

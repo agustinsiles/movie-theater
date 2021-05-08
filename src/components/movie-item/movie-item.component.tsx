@@ -12,8 +12,8 @@ const MovieItem: React.FC<IMovieItemProps> = ({ clickHandler, movie }) => {
         <div
             onClick={() => clickHandler(movie.id)} 
             className="MovieItem">
-            <MovieAvatar avatarUrl={movie.poster_path} />
-            <h6>{movie.id}</h6>
+            <MovieAvatar avatarUrl={movie.avatar} />
+            <h6>{movie.title}</h6>
         </div>
     );
 };

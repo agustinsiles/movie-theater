@@ -7,7 +7,7 @@ interface IMovieAvatarProps {
 
 const MovieAvatar: React.FC<IMovieAvatarProps> = ({ avatarUrl }) => (
     <img 
-        src={`https://image.tmdb.org/t/p/w500/${avatarUrl}`} 
+        src={avatarUrl} 
         alt='Movie'
         className='MovieAvatar'
     />
