@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/movie-theater/static/css/main.6ce464c2.chunk.css",
+    "main.js": "/movie-theater/static/js/main.50662f76.chunk.js",
+    "main.js.map": "/movie-theater/static/js/main.50662f76.chunk.js.map",
+    "runtime-main.js": "/movie-theater/static/js/runtime-main.b1450ccb.js",
+    "runtime-main.js.map": "/movie-theater/static/js/runtime-main.b1450ccb.js.map",
+    "static/js/2.b27ee58c.chunk.js": "/movie-theater/static/js/2.b27ee58c.chunk.js",
+    "static/js/2.b27ee58c.chunk.js.map": "/movie-theater/static/js/2.b27ee58c.chunk.js.map",
+    "index.html": "/movie-theater/index.html",
+    "static/css/main.6ce464c2.chunk.css.map": "/movie-theater/static/css/main.6ce464c2.chunk.css.map",
+    "static/js/2.b27ee58c.chunk.js.LICENSE.txt": "/movie-theater/static/js/2.b27ee58c.chunk.js.LICENSE.txt",
+    "static/media/search-box.component.scss": "/movie-theater/static/media/bg.07d0eb41.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b1450ccb.js",
+    "static/js/2.b27ee58c.chunk.js",
+    "static/css/main.6ce464c2.chunk.css",
+    "static/js/main.50662f76.chunk.js"
+  ]
+}
