@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/movie-theater/static/css/main.6ce464c2.chunk.css",
-    "main.js": "/movie-theater/static/js/main.50662f76.chunk.js",
-    "main.js.map": "/movie-theater/static/js/main.50662f76.chunk.js.map",
+    "main.js": "/movie-theater/static/js/main.fe227a53.chunk.js",
+    "main.js.map": "/movie-theater/static/js/main.fe227a53.chunk.js.map",
     "runtime-main.js": "/movie-theater/static/js/runtime-main.b1450ccb.js",
     "runtime-main.js.map": "/movie-theater/static/js/runtime-main.b1450ccb.js.map",
     "static/js/2.b27ee58c.chunk.js": "/movie-theater/static/js/2.b27ee58c.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.b1450ccb.js",
     "static/js/2.b27ee58c.chunk.js",
     "static/css/main.6ce464c2.chunk.css",
-    "static/js/main.50662f76.chunk.js"
+    "static/js/main.fe227a53.chunk.js"
   ]
 }
