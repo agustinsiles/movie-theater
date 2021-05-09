@@ -4,6 +4,9 @@ This app shows a list of suggested movies returned by the movie database API. If
 
 To see more details for a movie, simply click one and you will be redirected to that movie's detail page.
 
+## Run the app
+The app is deployed so anyone can access it without having to clone the repo and install it locally. You can run the app in [https://movie-theater-55596.web.app/](https://movie-theater-55596.web.app/)
+
 ## Local setup
 Run the following commands:
 1) `git clone https://github.com/agustinsiles/movie-theater.git`
