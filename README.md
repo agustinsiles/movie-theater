@@ -11,3 +11,6 @@ Run the following commands:
 3) `npm i`
 4) `npm start`
 And that's it! A new tab in your browser should automatically be opened with the app. But in case it doesn't, simple go to [http://localhost:3000](http://localhost:3000) 
+
+## Technical details
+The app has been created using `create-react-app` with React's latest version as of 05/09/2021. It uses only functional components with hooks and Redux to manage state. 
